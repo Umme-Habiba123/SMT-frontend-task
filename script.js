@@ -1,286 +1,170 @@
-// Modal functionality
-const modal = document.getElementById("bookingModal");
-const bookNowBtns = document.querySelectorAll(".book-now-btn");
-const closeBtn = document.querySelector(".close");
-const bookingForm = document.getElementById("bookingForm");
-
-// Open modal when any "Book Now" button is clicked
-bookNowBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
-  });
-});
-
-// Close modal when X is clicked
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-});
-
-// Close modal when clicking outside of it
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
-});
-
-// Handle form submission and Google Calendar integration
-bookingForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Get form values
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const service = document.getElementById("service").value;
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
-  const message = document.getElementById("message").value;
-
-  // Create Google Calendar event
-  createGoogleCalendarEvent(name, email, phone, service, date, time, message);
-});
-
-function createGoogleCalendarEvent(
-  name,
-  email,
-  phone,
-  service,
-  date,
-  time,
-  message,
-) {
-  // Format the date and time for Google Calendar
-  const eventDate = new Date(date + "T" + time);
-  const endDate = new Date(eventDate.getTime() + 2 * 60 * 60 * 1000); // Add 2 hours
-
-  // Format dates to ISO string format required by Google Calendar
-  const startDateTime = formatDateForGoogle(eventDate);
-  const endDateTime = formatDateForGoogle(endDate);
-
-  // Create event title and description
-  const title = Cleanora - `${service}`;
-  const description = `Cleaning Service Booking
-    
-Client Details:
-- Name: ${name}
-- Email: ${email}
-- Phone: ${phone}
-- Service: ${service}
-
-Additional Notes:
-${message || "No additional notes"}
-
-Please arrive on time and bring all necessary cleaning equipment.`;
-
-  const location = "Client Location (Address to be confirmed)";
-
-  // Create Google Calendar URL
-  const googleCalendarUrl = generateGoogleCalendarUrl(
-    title,
-    description,
-    location,
-    startDateTime,
-    endDateTime,
-  );
-
-  // Show success message
-  showSuccessMessage();
-
-  // Open Google Calendar in new tab
-  setTimeout(() => {
-    window.open(googleCalendarUrl, "_blank");
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-    bookingForm.reset();
-  }, 1500);
-}
-
-function formatDateForGoogle(date) {
-  // Format: YYYYMMDDTHHmmssZ
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  const hours = String(date.getHours()).padStart(2, "0");
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const seconds = String(date.getSeconds()).padStart(2, "0");
-
-  return `${year}${month}${day}T${hours}${minutes}${seconds}`;
-}
-
-function generateGoogleCalendarUrl(
-  title,
-  description,
-  location,
-  startDateTime,
-  endDateTime,
-) {
-  const baseUrl = "https://calendar.google.com/calendar/render";
-  const params = new URLSearchParams({
-    action: "TEMPLATE",
-    text: title,
-    dates: `${startDateTime}/${endDateTime}`,
-    details: description,
-    location: location,
-    sf: "true",
-    output: "xml",
-  });
-
-  return `${baseUrl}?${params.toString()}`;
-}
-
-function showSuccessMessage() {
-  // Create success message element
-  const successDiv = document.createElement("div");
-  successDiv.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #00C853;
-        color: white;
-        padding: 30px 50px;
-        border-radius: 10px;
-        box-shadow: 0 10px 40px rgba(0, 200, 83, 0.4);
-        z-index: 3000;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 600;
-        animation: successFadeIn 0.3s ease;
-    `;
-  successDiv.innerHTML = `
-        <div style="font-size: 48px; margin-bottom: 10px;">✓</div>
-        <div>Booking Confirmed!</div>
-        <div style="font-size: 14px; font-weight: 400; margin-top: 10px;">Opening Google Calendar...</div>
-    `;
-
-  document.body.appendChild(successDiv);
-
-  // Remove success message after 2 seconds
-  setTimeout(() => {
-    successDiv.remove();
-  }, 2000);
-}
-
-// Add CSS animation for success message
-const style = document.createElement("style");
-style.textContent = `
-    @keyframes successFadeIn {
-        from {
-            opacity: 0;
-            transform: translate(-50%, -60%);
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
-        to {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  });
+    });
 });
 
-// Set minimum date to today for date input
-const dateInput = document.getElementById("date");
-const today = new Date().toISOString().split("T")[0];
-dateInput.setAttribute("min", today);
-
-// Add hover effects for pricing cards
-const pricingCards = document.querySelectorAll(".pricing-card");
-pricingCards.forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    card.style.boxShadow = "0 15px 40px rgba(0,0,0,0.15)";
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.boxShadow = "0 5px 20px rgba(0,0,0,0.08)";
-  });
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+    } else {
+        header.style.background = 'white';
+        header.style.backdropFilter = 'none';
+    }
 });
 
 // Animate elements on scroll
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
 }, observerOptions);
 
-// Add animation to sections
-document.querySelectorAll("section").forEach((section) => {
-  section.style.opacity = "0";
-  section.style.transform = "translateY(20px)";
-  section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  observer.observe(section);
+// Observe elements for animation
+document.querySelectorAll('.stat-item, .service-item, .pricing-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
 });
 
-// Handle "Choose Plan" buttons
-const choosePlanBtns = document.querySelectorAll(
-  ".pricing-card .btn-outline, .pricing-card .btn-primary",
-);
-choosePlanBtns.forEach((btn, index) => {
-  btn.addEventListener("click", (e) => {
-    // Don't trigger if it's already a book-now button
-    if (!btn.classList.contains("book-now-btn")) {
-      // Get the service type from the pricing card
-      const pricingCard = btn.closest(".pricing-card");
-      const serviceLabel =
-        pricingCard.querySelector(".pricing-label").textContent;
-
-      // Open modal
-      modal.style.display = "block";
-      document.body.style.overflow = "hidden";
-
-      // Pre-select the service
-      const serviceSelect = document.getElementById("service");
-      const serviceName = serviceLabel.split(" ")[0] + " Plan";
-
-      // Set the select value after a short delay to ensure modal is visible
-      setTimeout(() => {
-        for (let option of serviceSelect.options) {
-          if (option.value.includes(serviceName)) {
-            serviceSelect.value = option.value;
-            break;
-          }
+// Counter animation for stats
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target + '+';
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start) + '+';
         }
-      }, 100);
-    }
-  });
+    }, 16);
+}
+
+// Trigger counter animation when stats come into view
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.stat-item h3, .stat h3');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                if (target) {
+                    animateCounter(stat, target);
+                }
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stats, .about-stats').forEach(stats => {
+    statsObserver.observe(stats);
 });
 
-// Add loading state to form submission
-bookingForm.addEventListener("submit", function () {
-  const submitBtn = this.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = "Processing...";
-  submitBtn.disabled = true;
+// Mobile menu toggle (if needed)
+const createMobileMenu = () => {
+    const navbar = document.querySelector('.navbar');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    // Create hamburger button
+    const hamburger = document.createElement('button');
+    hamburger.className = 'hamburger';
+    hamburger.innerHTML = '☰';
+    hamburger.style.display = 'none';
+    hamburger.style.background = 'none';
+    hamburger.style.border = 'none';
+    hamburger.style.fontSize = '1.5rem';
+    hamburger.style.cursor = 'pointer';
+    hamburger.style.color = '#3b82f6';
+    
+    navbar.appendChild(hamburger);
+    
+    // Toggle menu on mobile
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+    
+    // Show/hide hamburger based on screen size
+    const checkScreenSize = () => {
+        if (window.innerWidth <= 768) {
+            hamburger.style.display = 'block';
+            navMenu.style.display = navMenu.classList.contains('active') ? 'flex' : 'none';
+        } else {
+            hamburger.style.display = 'none';
+            navMenu.style.display = 'flex';
+        }
+    };
+    
+    window.addEventListener('resize', checkScreenSize);
+    checkScreenSize();
+};
 
-  // Re-enable button after processing
-  setTimeout(() => {
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-  }, 2000);
+// Initialize mobile menu
+createMobileMenu();
+
+// Button click handlers
+document.querySelectorAll('.cta-button, .hero-cta, .pricing-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        // Add click animation
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 150);
+        
+        // You can add actual functionality here
+        console.log('Button clicked:', button.textContent);
+    });
 });
 
-console.log("Cleanora Booking System Initialized");
-console.log("Google Calendar Integration Active");
+// Video play button
+document.querySelector('.play-button')?.addEventListener('click', () => {
+    // Replace with actual video functionality
+    alert('Video would play here! You can integrate with YouTube, Vimeo, or host your own video.');
+});
+
+// Form validation (if you add contact forms later)
+const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+};
+
+// Add loading states for buttons
+const addLoadingState = (button, duration = 2000) => {
+    const originalText = button.textContent;
+    button.textContent = 'Loading...';
+    button.disabled = true;
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+    }, duration);
+};
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Cleanora website loaded successfully!');
+    
+  
+});

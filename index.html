@@ -1,386 +1,266 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cleanora - Professional Cleaning Service</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="nav-content">
-          <div class="logo">Cleanora</div>
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#service">Service</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div class="nav-right">
-            <button class="search-btn">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </button>
-            <button class="btn-primary">Log in</button>
-          </div>
-        </div>
-      </div>
-    </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanora - Professional Cleaning You Can Trust</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2>Cleanora</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button">Get Quote</button>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="container">
         <div class="hero-content">
-          <div class="hero-text">
-            <h1>
-              Professional <span class="highlight">Cleaning</span><br />You Can
-              Trust
-            </h1>
-            <p>
-              Our expert cleaners are trained, background-checked, and ready to
-              transform your space into something fresh and flawless.
-            </p>
-            <button class="btn-primary book-now-btn">Our Service</button>
-            <div class="hero-stats">
-              <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Trusted Cleaners</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">456+</div>
-                <div class="stat-label">Affordable Clean</div>
-              </div>
+            <div class="hero-text">
+                <h1>Professional <span class="highlight">Cleaning</span><br>You Can Trust</h1>
+                <p>We provide professional cleaning services for your home and office. Our experienced team ensures your space is spotless and sanitized.</p>
+                <button class="hero-cta">Book Service</button>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>450+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="hero-images">
-            <div class="hero-image-container">
-              <div class="hero-main-image">
-                <img src="./images/banner1.jpeg" alt="Professional cleaner" />
-                <div class="image-badge">
-                  <div class="badge-size">315 × 300</div>
-                  <div class="badge-number">80+</div>
-                  <div class="badge-text">Best<br />Cleaners</div>
+            <div class="hero-images">
+                <div class="image-grid">
+                    <img src="images/hero1.jpg" alt="Professional cleaner" class="hero-img-1">
+                    <img src="images/hero2.jpg" alt="Cleaning supplies" class="hero-img-2">
+                    <img src="images/hero3.jpg" alt="Clean home" class="hero-img-3">
                 </div>
-              </div>
-              <div class="hero-secondary-images">
-                <div class="secondary-image secondary-top">
-                  <img src="./images/banner2.jpeg" alt="Cleaning supplies" />
+                <div class="rating-card">
+                    <div class="stars">★★★★★</div>
+                    <p>500+ Reviews</p>
                 </div>
-                <div class="secondary-image secondary-bottom">
-                  <img src="./images/banner3.jpeg" alt="Cleaning team" />
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
-
-    <!-- Services Preview -->
-    <section class="services-preview">
-      <div class="container">
-        <div class="services-content">
-          <div class="service-image">
-           <img src="./images/banner3.jpeg" alt="Cleaning searvice" />
-          </div>
-          <div class="service-info">
-            <div class="section-label ">About Us</div>
-            <h2>Cleaning That Shines, Service That Lasts</h2>
-            <p>
-              Our team consists of experienced professionals who pay attention
-              to every detail to ensure your home or business is immaculate.
-            </p>
-            <div class="service-stats">
-              <div class="stat-item">
-                <div class="stat-number">1000+</div>
-                <div class="stat-label">Trusted Families</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">4540+</div>
-                <div class="stat-label">Affordable Rates</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">8000+</div>
-                <div class="stat-label">Book Online</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- About Section -->
     <section class="about" id="about">
-      <div class="container">
         <div class="about-content">
-          <div class="about-text">
-            <div class="section-label">Why Choose Us</div>
-            <h2>Professional Cleaning Services You Can Trust</h2>
-            <p>
-              We take pride in providing exceptional cleaning services to our
-              clients. Our trained and experienced cleaners use eco-friendly
-              products to ensure your space is not only clean but also safe for
-              you and your family.
-            </p>
-
-            <div class="features">
-              <div class="feature-item">
-                <div class="feature-icon">✓</div>
-                <div class="feature-text">
-                  <h4>Expert Cleaning Professionals</h4>
-                  <p>Trained and certified cleaning experts</p>
+            <div class="about-image">
+                <img src="images/image1.jpg" alt="Professional cleaning service">
+            </div>
+            <div class="about-text">
+                <span class="section-tag">About Us</span>
+                <h2>Cleaning That Shines, Service That Lasts</h2>
+                <p>We are a professional cleaning company dedicated to providing exceptional service. Our team of experienced cleaners uses eco-friendly products and modern techniques to ensure your space is perfectly clean.</p>
+                
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                    <div class="stat">
+                        <h3>450+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat">
+                        <h3>800+</h3>
+                        <p>Projects Done</p>
+                    </div>
                 </div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-icon">✓</div>
-                <div class="feature-text">
-                  <h4>100% Satisfaction Guaranteed</h4>
-                  <p>We guarantee your complete satisfaction</p>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="about-images">
-            <div class="about-image-main">
-              <img src="images/whyChooseUs.jpeg         " alt="Professional cleaning" />
-            </div>
-            <div class="about-stats-card">
-              <div class="customer-avatars">
-                <img src="https://i.pravatar.cc/50?img=1" alt="Customer 1" />
-                <img src="https://i.pravatar.cc/50?img=2" alt="Customer 2" />
-              </div>
-              <div class="stats-rating">4.9</div>
-              <div class="stats-text">Customer Reviews</div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing">
-      <div class="container">
-        <h2 class="section-title">Cleaning Services That Fit Your Budget</h2>
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <div class="pricing-header">
-              <div class="pricing-label">BASIC PLAN</div>
-              <div class="pricing-price">
-                <span class="currency">$</span>
-                <span class="amount">450</span>
-              </div>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-left">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>Professional Cleaning Services You Can Trust</h2>
+                <p>We provide professional cleaning services for your home and office. Whether it's your home or office, our trained team delivers spotless results using safe, eco-friendly products. Book today, schedule flexibly, and let us handle the mess so you can focus on what matters most.</p>
+                
+                <div class="service-features">
+                    <div class="feature-item">
+                        <div class="feature-number">01</div>
+                        <div class="feature-content">
+                            <h4>Professional & Trained Cleaners</h4>
+                            <p>Our cleaners are professionally trained in cleaning techniques and use safe and eco-friendly products.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">02</div>
+                        <div class="feature-content">
+                            <h4>Flexible Scheduling & Affordable Rates</h4>
+                            <p>Book our cleaning services at your convenience. We offer equipment and supplies at competitive prices.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">03</div>
+                        <div class="feature-content">
+                            <h4>Eco-friendly Cleaning Products</h4>
+                            <p>We use safe and eco-friendly cleaning products.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <ul class="pricing-features">
-              <li>✓ General cleaning of all rooms</li>
-              <li>✓ Dusting and vacuuming</li>
-              <li>✓ Kitchen and bathroom cleaning</li>
-              <li>✓ Trash removal</li>
-              <li>✓ Surface sanitization</li>
-            </ul>
-            <button class="btn-outline">Choose Plan</button>
-          </div>
-
-          <div class="pricing-card featured">
-            <div class="pricing-header">
-              <div class="pricing-label">STANDARD PLAN</div>
-              <div class="pricing-price">
-                <span class="currency">$</span>
-                <span class="amount">650</span>
-              </div>
+            
+            <div class="services-right">
+                <div class="service-images-grid">
+                    <div class="service-image-main">
+                        <img src="images/image2.jpg" alt="Professional cleaning team" class="main-service-img">
+                    </div>
+                    <div class="service-feedback-section">
+                        <div class="service-feedback-card">
+                            <div class="client-avatars">
+                                <img src="images/hero1.jpg" alt="Client" class="avatar">
+                                <img src="images/hero2.jpg" alt="Client" class="avatar">
+                            </div>
+                            <div class="feedback-content">
+                                <p>Client Feedback</p>
+                                <div class="rating-display">
+                                    <span class="rating-number">4.5</span>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                                <p class="feedback-text">Overall Reviews</p>
+                            </div>
+                        </div>
+                        <div class="service-image-small">
+                            <img src="images/image4.jpg" alt="Professional cleaner" class="small-service-img">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <ul class="pricing-features">
-              <li>✓ All Basic Plan services</li>
-              <li>✓ Deep cleaning of all areas</li>
-              <li>✓ Window cleaning (interior)</li>
-              <li>✓ Appliance exterior cleaning</li>
-              <li>✓ Baseboard cleaning</li>
-            </ul>
-            <button class="btn-primary">Choose Plan</button>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-header">
-              <div class="pricing-label">PREMIUM PLAN</div>
-              <div class="pricing-price">
-                <span class="currency">$</span>
-                <span class="amount">1150</span>
-              </div>
-            </div>
-            <ul class="pricing-features">
-              <li>✓ All Standard Plan services</li>
-              <li>✓ Carpet and upholstery cleaning</li>
-              <li>✓ Window cleaning (interior & exterior)</li>
-              <li>✓ Cabinet interior cleaning</li>
-              <li>✓ Organization services</li>
-            </ul>
-            <button class="btn-outline">Choose Plan</button>
-          </div>
         </div>
-      </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-header">
+            <h2>Cleaning Services That Fit Your Budget</h2>
+        </div>
+        
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">
+                    <span class="currency">$</span>
+                    <span class="amount">480</span>
+                </div>
+                <p class="price-desc">Perfect for small spaces</p>
+                <ul class="features">
+                    <li>✓ Basic room cleaning</li>
+                    <li>✓ Bathroom sanitization</li>
+                    <li>✓ Kitchen cleaning</li>
+                    <li>✓ Vacuum and mop floors</li>
+                    <li>✓ Dust surfaces</li>
+                </ul>
+                <button class="pricing-btn basic">Choose Plan</button>
+            </div>
+            
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Professional</h3>
+                <div class="price">
+                    <span class="currency">$</span>
+                    <span class="amount">850</span>
+                </div>
+                <p class="price-desc">Recommended Plan</p>
+                <ul class="features">
+                    <li>✓ Everything in Basic</li>
+                    <li>✓ Deep cleaning service</li>
+                    <li>✓ Window cleaning</li>
+                    <li>✓ Appliance cleaning</li>
+                    <li>✓ Eco-friendly products</li>
+                </ul>
+                <button class="pricing-btn professional">Choose Plan</button>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <div class="price">
+                    <span class="currency">$</span>
+                    <span class="amount">950</span>
+                </div>
+                <p class="price-desc">Complete cleaning solution</p>
+                <ul class="features">
+                    <li>✓ Everything in Professional</li>
+                    <li>✓ Carpet cleaning</li>
+                    <li>✓ Upholstery cleaning</li>
+                    <li>✓ Post-construction cleanup</li>
+                    <li>✓ 24/7 support</li>
+                </ul>
+                <button class="pricing-btn premium">Choose Plan</button>
+            </div>
+        </div>
     </section>
 
     <!-- Video Section -->
     <section class="video-section">
-      <div class="container">
         <div class="video-container">
-          <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=600&fit=crop"
-            alt="Cleaning service video"
-          />
-          <div class="play-button">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-              <circle cx="40" cy="40" r="40" fill="#4A90E2" />
-              <path d="M32 25L55 40L32 55V25Z" fill="white" />
-            </svg>
-          </div>
+            <div class="video-placeholder">
+                <div class="video-overlay"></div>
+                <div class="play-button">▶</div>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
         <div class="footer-content">
-          <div class="footer-section footer-brand">
-            <h3 class="footer-logo">Cleanora</h3>
-            <p>
-              Choose a plan that suits your needs—whether it's a one-time deep
-              clean or a regular maintenance schedule.
-            </p>
-            <div class="social-links">
-              <a href="#" aria-label="LinkedIn"
-                ><svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                  /></svg
-              ></a>
-              <a href="#" aria-label="Twitter"
-                ><svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
-                  /></svg
-              ></a>
-              <a href="#" aria-label="Facebook"
-                ><svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
-                  /></svg></a>
+            <div class="footer-brand">
+                <h3>Cleanora</h3>
+                <p>Choose a plan that suits your needs. Whether it's a one-time deep clean or a regular maintenance schedule.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">📧</a>
+                    <a href="#" class="social-icon">📞</a>
+                    <a href="#" class="social-icon">📍</a>
+                </div>
             </div>
-          </div>
-          <div class="footer-section">
-            <h4>Service</h4>
-            <ul>
-              <li><a href="#">Strategisk Arbetskraftsplanering</a></li>
-              <li><a href="#">Lärande och Utveckling</a></li>
-              <li><a href="#">Människokära och Talangintellgens</a></li>
-              <li><a href="#">HR-teknik och AI</a></li>
-              <li><a href="#">Talangförvärv</a></li>
-              <li><a href="#">Våra Konsulter</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>About</h4>
-            <ul>
-              <li><a href="#">Om Oss</a></li>
-              <li><a href="#">Våra Konsulter</a></li>
-              <li><a href="#">Kunskapsbank</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Help</h4>
-            <ul>
-              <li>
-                <a href="mailto:team@northboundgroup.se"
-                  >📧 team@northboundgroup.se</a
-                >
-              </li>
-              <li><a href="#">📍 Stockholm, Sverige</a></li>
-            </ul>
-          </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#">Residential House cleaning</a></li>
+                        <li><a href="#">Commercial Cleaning</a></li>
+                        <li><a href="#">Move-in/move-out / Garage Cleaning</a></li>
+                        <li><a href="#">Office Janitorial</a></li>
+                        <li><a href="#">Housekeeping</a></li>
+                        <li><a href="#">Villa Sanitizer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Why Choose us</a></li>
+                        <li><a href="#">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">📧 cleanora@cleaning.com</a></li>
+                        <li><a href="#">📞 Stockholm, Sweden</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Book Your Cleaning Service</h2>
-        <p>Fill in the details below to schedule your appointment</p>
-
-        <form id="bookingForm">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
-
-          <div class="form-group">
-            <label for="service">Service Type</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="Basic Plan">Basic Plan - $450</option>
-              <option value="Standard Plan">Standard Plan - $650</option>
-              <option value="Premium Plan">Premium Plan - $1150</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="date">Preferred Date</label>
-            <input type="date" id="date" name="date" required />
-          </div>
-
-          <div class="form-group">
-            <label for="time">Preferred Time</label>
-            <input type="time" id="time" name="time" required />
-          </div>
-
-          <div class="form-group">
-            <label for="message">Additional Notes</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary btn-full">
-            Add to Google
-          </button>
-        </form>
-      </div>
-    </div>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
